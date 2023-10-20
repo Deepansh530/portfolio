@@ -49,7 +49,7 @@ function previewFile()
         /* Pass meta data of file */
         metaData: {
             /* file name */
-            fileName: "Deepansh Kataria.pdf"
+            fileName: "Deepansh_Kataria_Resume.pdf"
         }
     }, viewerConfig);
 };
