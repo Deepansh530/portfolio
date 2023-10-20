@@ -34,7 +34,7 @@ function previewFile()
         content: {
             /* Location of file where it is hosted */
             location: {
-                url: "https://deepansh530.github.io/portfolio/Deepansh%20Kataria.pdf",
+                url: "https://deepansh530.github.io/portfolio/Deepansh_Kataria_Resume.pdf",
                 /*
                 If the file URL requires some additional headers, then it can be passed as follows:-
                 header: [
