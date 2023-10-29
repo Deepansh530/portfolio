@@ -27,7 +27,8 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="css/typewriter.css">
@@ -394,8 +395,8 @@
                     </div>
                 </div>
                 <div class="col-lg-7 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <p class="mb-4">The contact form is powered by <strong>Google Forms</strong>, You will be redirected to a new tab when you submit the form, you can also ping me on <a href="https://wa.me/916283526708?text=Hi+,+I+found+your+github+site">Whatsapp  <i class="fab fa-brands fa-whatsapp"></i></a> by clicking on the above button 😊.</p>
-                    <form action="https://docs.google.com/forms/d/e/1FAIpQLScoREzigmpGoSHKpr169SDNgaM5dxuSko5sToLgLAeGlotEPg/formResponse?" method="POST" target="_blank">
+                    <p class="mb-4">This <strong>Works!!🤞</strong>, you can also ping me on <a href="https://wa.me/916283526708?text=Hi+,+I+found+your+github+site">Whatsapp  <i class="fab fa-brands fa-whatsapp"></i></a> by clicking on the above button 😊.</p>
+                    <form id="myform" action="https://docs.google.com/forms/d/e/1FAIpQLScoREzigmpGoSHKpr169SDNgaM5dxuSko5sToLgLAeGlotEPg/formResponse" method="POST" target="_blank">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
@@ -416,7 +417,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary py-3 px-5" type="submit">Send Message</button>
+                                <button class="btn btn-primary py-3 px-5"  type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>
@@ -475,6 +476,31 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script src="js/adobe.js"></script>
+
+    <script>
+        $("#myform").submit(function(e){
+            e.preventDefault();
+
+            $.ajax({
+                url:"https://docs.google.com/forms/d/e/1FAIpQLScoREzigmpGoSHKpr169SDNgaM5dxuSko5sToLgLAeGlotEPg/formResponse",
+                data:$("#myform").serialize(),
+                type:"POST",
+                dataType:"json",
+                statusCode:{
+                    0:function(data){
+                        alert("Your form has been successfully Submitted!");
+                        location.reload();
+                    },
+                    200:function(data){
+                        alert("Your form has been successfully Submitted!");
+                    },
+                    403:function(data){
+                        alert("Failed")
+                    },
+                }
+            })
+        })
+    </script>
 </body>
 
 </html>
